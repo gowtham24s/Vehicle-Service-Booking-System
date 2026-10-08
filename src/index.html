@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vehicle Service Booking</title>
+<style>
+body{font-family:Arial;background:#eee}
+form{width:350px;margin:30px auto;padding:20px;background:white}
+input,select,button{width:100%;padding:8px;margin:7px 0}
+button{background:green;color:white;border:0}
+</style>
+</head>
+
+<body>
+
+<form id="form">
+<h2>Vehicle Service Booking</h2>
+
+<input id="name" placeholder="Customer Name">
+<input id="vehicle" placeholder="Vehicle Number">
+
+<select id="type">
+<option value="">Vehicle Type</option>
+<option>Car</option>
+<option>Bike</option>
+</select>
+
+<select id="service">
+<option value="">Service Type</option>
+<option>General Service</option>
+<option>Oil Change</option>
+</select>
+
+<input type="date" id="date">
+<input id="phone" placeholder="Contact Number">
+
+<button>Book Service</button>
+<button type="reset">Reset</button>
+
+<p id="msg"></p>
+</form>
+
+<script>
+document.getElementById("form").onsubmit=function(e){
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let vehicle=document.getElementById("vehicle").value;
+let phone=document.getElementById("phone").value;
+
+if(name==""||vehicle==""||phone==""){
+alert("Fill all details");
+return;
+}
+
+if(!/^[0-9]{10}$/.test(phone)){
+alert("Enter valid 10 digit number");
+return;
+}
+
+document.getElementById("msg").innerHTML="Booking successful!";
+}
+</script>
+
+</body>
+</html>
